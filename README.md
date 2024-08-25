@@ -1,0 +1,1 @@
+# Estudo experimental de métodos de ordenação externa
