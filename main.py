@@ -17,14 +17,3 @@ if __name__ == "__main__":
     else:
         ferramenta_ordenacao = Experimentos()
         resolver_experimentos(ferramenta_ordenacao)
-
-    # tipo_teste = "m"
-
-    # if tipo_teste.lower() == "m":
-    #     ferramenta_ordenacao = TestesManuais()
-    #     algoritmo, m, k, r, n, registros = "B", 3, 4, 3, 17, [
-    #         7, 1, 5, 6, 3, 8, 2, 10, 4, 9, 1, 3, 7, 4, 1, 2, 3]
-    #     ferramenta_ordenacao.ordenar(
-    #         algoritmo, m, k, r, n, registros, verbose=True)
-    # else:
-    #     ferramenta_ordenacao = Experimentos()

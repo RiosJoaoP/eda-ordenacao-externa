@@ -9,9 +9,6 @@ class TestesManuais:
     def __init__(self):
         self.paginas = deque()
         self.numero_registros = 0
-        self.beta = []
-        self.alpha = None
-        self.resultado = None
         self.algoritmos = {
             "B": AlgoritmosOrdenacao.balanceadaMultiCaminhos,
             "P": AlgoritmosOrdenacao.polifasica,
@@ -21,9 +18,6 @@ class TestesManuais:
     def limpar_estrutura(self):
         self.paginas.clear()
         self.numero_registros = 0
-        self.beta.clear()
-        self.alpha = None
-        self.resultado = None
 
     def ordenar(self, algoritmo, m, k, r, n, registros, verbose=True):
         self.limpar_estrutura()
