@@ -1,5 +1,3 @@
-import sys
-from core.experimentos import gerar_experimentos
 from dsa.TestesManuais import TestesManuais
 from dsa.Experimentos import Experimentos
 from core.resolverTestesManuais import resolver_testes_manuais

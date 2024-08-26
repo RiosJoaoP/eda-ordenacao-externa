@@ -1,8 +1,5 @@
-from dsa.Registro import Registro
-from dsa.utils import limite_de_paginas, criar_paginas, criar_registros_aleatorios
-from dsa.AlgoritmosOrdenacao import AlgoritmosOrdenacao
+from dsa.AlgoritmosOrdenacao import balanceadaMultiCaminhos, polifasica, cascata
 from collections import deque
-from dsa.FildaDePrioridade import FilaDePrioridade
 
 
 class Experimentos:
@@ -10,9 +7,9 @@ class Experimentos:
         self.paginas = deque()
         self.numero_registros = 0
         self.algoritmos = {
-            "B": AlgoritmosOrdenacao.balanceadaMultiCaminhos,
-            "P": AlgoritmosOrdenacao.polifasica,
-            "C": AlgoritmosOrdenacao.cascata
+            "B": balanceadaMultiCaminhos,
+            "P": polifasica,
+            "C": cascata
         }
 
     def __str__(self):

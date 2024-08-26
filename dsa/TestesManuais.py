@@ -1,6 +1,6 @@
 from dsa.Registro import Registro
 from dsa.utils import limite_de_paginas, criar_paginas
-from dsa.AlgoritmosOrdenacao import AlgoritmosOrdenacao
+from dsa.AlgoritmosOrdenacao import balanceadaMultiCaminhos, polifasica, cascata
 from dsa.FildaDePrioridade import FilaDePrioridade
 from collections import deque
 
@@ -10,9 +10,9 @@ class TestesManuais:
         self.paginas = deque()
         self.numero_registros = 0
         self.algoritmos = {
-            "B": AlgoritmosOrdenacao.balanceadaMultiCaminhos,
-            "P": AlgoritmosOrdenacao.polifasica,
-            "C": AlgoritmosOrdenacao.cascata
+            "B": balanceadaMultiCaminhos,
+            "P": polifasica,
+            "C": cascata
         }
 
     def limpar_estrutura(self):
