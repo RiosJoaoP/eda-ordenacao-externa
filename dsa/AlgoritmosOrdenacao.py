@@ -102,7 +102,7 @@ class AlgoritmosOrdenacao:
     # --------------------- Algoritmos ---------------------
 
     @staticmethod
-    def balanceadaMultiCaminhos(problema, m, verbose=True):
+    def balanceadaMultiCaminhos(problema, m, r, k, verbose=True, salvar=False):
         contador = 0
         escritas = 0
 
@@ -131,13 +131,13 @@ class AlgoritmosOrdenacao:
         AlgoritmosOrdenacao.imprimir_resultados(
             problema, preenchidos, contador, m, verbose)
         problema.paginaFinal = preenchidos
-        problema.alpha_r = AlgoritmosOrdenacao.calcularAlpha(
+        problema.result_alpha = AlgoritmosOrdenacao.calcularAlpha(
             problema, escritas)
         if verbose:
-            print(f"final {problema.alpha_r}")
+            print(f"final {problema.result_alpha}")
 
     @staticmethod
-    def polifasica(problema, m, imprimir=True) -> None:
+    def polifasica(problema, m, r, k, imprimir=True, salvar=False):
         contador = 0
         escritas = 0.0
         while not AlgoritmosOrdenacao.estaOrdenado(problema):
@@ -162,13 +162,16 @@ class AlgoritmosOrdenacao:
         AlgoritmosOrdenacao.imprimir_resultados(
             problema, preenchidos, contador, m, imprimir)
         problema.paginaFinal = preenchidos
-        problema.alpha_r = AlgoritmosOrdenacao.calcularAlpha(
+        problema.result_alpha = AlgoritmosOrdenacao.calcularAlpha(
             problema, escritas)
         if imprimir:
-            print(f"final {problema.alpha_r}")
+            print(f"final {problema.result_alpha}")
+        if salvar:
+            with open('./outputs/polifasica.txt', 'a') as file:
+                file.write(f"{r}-{k}-{problema.result_alpha}\n")
 
     @staticmethod
-    def cascata(problema, m, imprimir=True) -> None:
+    def cascata(problema, m, r, k, imprimir=True, salvar=False):
         contador = 0
         escritas = 0.0
 
@@ -202,7 +205,7 @@ class AlgoritmosOrdenacao:
         problema.paginaFinal = preenchidos
         AlgoritmosOrdenacao.imprimir_resultados(
             problema, preenchidos, contador, m, imprimir)
-        problema.alpha_r = AlgoritmosOrdenacao.calcularAlpha(
+        problema.result_alpha = AlgoritmosOrdenacao.calcularAlpha(
             problema, escritas)
         if imprimir:
-            print(f"final {problema.alpha_r}")
+            print(f"final {problema.result_alpha}")

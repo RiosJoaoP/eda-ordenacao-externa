@@ -3,24 +3,9 @@ from core.experimentos import gerar_experimentos
 from dsa.TestesManuais import TestesManuais
 from dsa.Experimentos import Experimentos
 from core.resolverTestesManuais import resolver_testes_manuais
-
-''''
-    Note:
-
-    Main.py
-    Main file to run the project
-    Usage:
-        python3 Main.py [file]
-    Example:
-        python3 Main.py examples/hard_example
-
-    to Output the results to a file, use the following command:
-        python3 Main.py examples/hard_example > output.txt
-
-'''
+from core.resolverExperimentos import resolver_experimentos
 
 if __name__ == "__main__":
-    # experimentos = gerar_experimentos()
 
     tipo_teste = input("Testes Manuais(M) ou Experimentais(E)? ")
 
@@ -31,6 +16,7 @@ if __name__ == "__main__":
             algoritmo, m, k, r, n, registros, verbose=True)
     else:
         ferramenta_ordenacao = Experimentos()
+        resolver_experimentos(ferramenta_ordenacao)
 
     # tipo_teste = "m"
 

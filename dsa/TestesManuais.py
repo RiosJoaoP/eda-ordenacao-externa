@@ -1,6 +1,5 @@
 from dsa.Registro import Registro
-from dsa.Heap import Heap
-from dsa.utils import limite_de_paginas, criar_paginas, permutar
+from dsa.utils import limite_de_paginas, criar_paginas
 from dsa.AlgoritmosOrdenacao import AlgoritmosOrdenacao
 from dsa.FildaDePrioridade import FilaDePrioridade
 from collections import deque
@@ -32,7 +31,7 @@ class TestesManuais:
         self.gerar_sequencias(
             registros, m, limite_de_paginas(k, algoritmo))
         algoritmo_escolhido = self.algoritmos[algoritmo]
-        algoritmo_escolhido(self, m, verbose)
+        algoritmo_escolhido(self, m, r, k, verbose)
 
     def registros_alocados(self, sequencias):
         i = 0
