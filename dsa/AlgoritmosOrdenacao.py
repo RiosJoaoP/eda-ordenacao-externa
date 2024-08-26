@@ -13,7 +13,7 @@ class AlgoritmosOrdenacao:
         return min(preenchidos, key=lambda x: x.obterContagemSequencias())
 
     @staticmethod
-    def intercalar(problema, preenchidos, alvo) -> float:
+    def intercalar(problema, preenchidos, final):
         heap = Heap()
         for pagina in preenchidos:
             if not pagina.estaVazia():
@@ -29,11 +29,11 @@ class AlgoritmosOrdenacao:
             nova_sequencia.append(item)
             num_escritas += 1
 
-        alvo.adicionar(nova_sequencia, alvo.indice)
+        final.adicionar(nova_sequencia, final.indice)
         return num_escritas
 
     @staticmethod
-    def intercalarPolifasica(problema, menor_pagina, preenchidos, alvo):
+    def intercalarPolifasica(problema, menor_pagina, preenchidos, final):
         heap = Heap()
         num_escritas = 0
 
@@ -49,14 +49,14 @@ class AlgoritmosOrdenacao:
                     heap.inserir(problema.paginas[item.indice].remover())
                 nova_sequencia.append(item)
                 num_escritas += 1
-            alvo.adicionar(nova_sequencia, alvo.indice)
+            final.adicionar(nova_sequencia, final.indice)
 
             [pagina.ativar() for pagina in preenchidos if pagina.estaBloqueada()]
 
         return num_escritas
 
     @staticmethod
-    def estaOrdenado(problema) -> bool:
+    def estaOrdenado(problema):
         contagem = 0
         for pagina in problema.paginas:
             if not pagina.estaVazia():
@@ -180,7 +180,7 @@ class AlgoritmosOrdenacao:
                 pagina for pagina in problema.paginas if not pagina.estaVazia()]
             nao_preenchidos = [
                 pagina for pagina in problema.paginas if pagina.estaVazia()]
-            alvo = nao_preenchidos[0]
+            final = nao_preenchidos[0]
 
             AlgoritmosOrdenacao.imprimir_resultados(
                 problema, preenchidos, contador, m, imprimir)
@@ -189,14 +189,14 @@ class AlgoritmosOrdenacao:
 
             while not maior_pagina.estaVazia():
                 escritas += AlgoritmosOrdenacao.intercalar(
-                    problema, preenchidos, alvo)
+                    problema, preenchidos, final)
                 [pagina.ativar()
                  for pagina in preenchidos if pagina.estaBloqueada()]
 
                 nao_preenchidos = [
                     pagina for pagina in problema.paginas if pagina.estaVazia()]
                 if nao_preenchidos:
-                    alvo = nao_preenchidos[0]
+                    final = nao_preenchidos[0]
 
             contador += 1
 
